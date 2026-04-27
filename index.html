@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiet Paleo Recipes — Dr. Georgia Ede</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9f8f6; color: #1a1a1a; font-size: 15px; line-height: 1.6; -webkit-text-size-adjust: 100%; }
+  .page { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  h1 { font-size: 26px; font-weight: 600; margin-bottom: 4px; }
+  .subtitle { font-size: 14px; color: #666; margin-bottom: 1.5rem; }
+  .rules { background: #f0ede8; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 13px; color: #444; line-height: 1.7; }
+  .rules strong { color: #1a1a1a; font-weight: 600; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .tab { padding: 7px 13px; border-radius: 8px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-size: 13px; color: #555; transition: all 0.15s; font-family: inherit; touch-action: manipulation; -webkit-tap-highlight-color: rgba(0,0,0,0.08); white-space: nowrap; }
+  .tab:hover { background: #f0ede8; border-color: #bbb; color: #1a1a1a; }
+  .tab:active { background: #e8e5de; border-color: #bbb; }
+  .tab.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; font-weight: 500; }
+  .recipe { display: none; }
+  .recipe.visible { display: block; }
+  .recipe-title { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+  .meta { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
+  .meta-item { font-size: 13px; color: #666; }
+  .meta-item span { color: #1a1a1a; font-weight: 500; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin: 1.5rem 0 10px; }
+  .ingredients-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  @media (max-width: 500px) { .ingredients-grid { grid-template-columns: 1fr; } }
+  .ingredient { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 12px; background: #f5f3ef; border-radius: 8px; font-size: 14px; }
+  .ing-name { color: #1a1a1a; }
+  .ing-amount { color: #666; font-size: 13px; margin-left: 8px; white-space: nowrap; }
+  .steps { display: flex; flex-direction: column; gap: 8px; }
+  .step { display: flex; gap: 14px; padding: 12px 14px; background: #fff; border: 1px solid #eee; border-radius: 10px; }
+  .step-num { min-width: 26px; height: 26px; border-radius: 50%; background: #f0ede8; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #555; flex-shrink: 0; }
+  .step-text { font-size: 14px; color: #222; line-height: 1.65; padding-top: 3px; }
+  .tip { margin-top: 1rem; padding: 10px 14px; border-left: 3px solid #ddd; font-size: 13px; color: #666; line-height: 1.6; }
+  .tip strong { color: #1a1a1a; }
+  @media (max-width: 600px) {
+    .tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin-left: -1.5rem; margin-right: -1.5rem; padding: 4px 1.5rem; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { padding: 12px 16px; font-size: 14px; min-height: 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Quiet Paleo Recipes</h1>
+  <div class="subtitle">Dr. Georgia Ede — <em>Change Your Diet, Change Your Mind</em> &nbsp;·&nbsp; 9 recipes, each scaled to 2 meals</div>
+  <div class="rules">
+    <strong>Key rules:</strong> All fresh meat, poultry, seafood and eggs permitted. Fats: extra virgin olive oil, unrefined avocado oil, duck fat, tallow, lard. Seasonings: salt, black pepper, leafy/floral herbs only — no nightshade spices (no paprika, cayenne, chili powder). Alliums must be thoroughly cooked. Crucifers cooked only, max 1 portion/day. <strong>Avoid:</strong> grains, dairy, legumes, seed oils, refined carbs, sugar, alcohol.
+  </div>
+  <div class="tabs">
+    <button class="tab active">1. Lemony chicken</button>
+    <button class="tab">2. Salmon & zucchini</button>
+    <button class="tab">3. Beef steaks</button>
+    <button class="tab">4. Egg frittata</button>
+    <button class="tab">5. Stuffed mushrooms</button>
+    <button class="tab">6. Pan-fried hake</button>
+    <button class="tab">7. Beef meatballs</button>
+    <button class="tab">8. Shrimp stir-fry</button>
+    <button class="tab">9. Baby squid</button>
+  </div>
+
+  <!-- RECIPE 1 -->
+  <div class="recipe visible" id="r0">
+    <div class="recipe-title">Lemony chicken breasts with asparagus</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>10 min</span></div><div class="meta-item">Cook <span>30 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Oven + stove</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Chicken breasts</span><span class="ing-amount">4 pieces (~800g)</span></div>
+      <div class="ingredient"><span class="ing-name">Asparagus</span><span class="ing-amount">500g</span></div>
+      <div class="ingredient"><span class="ing-name">Extra virgin olive oil</span><span class="ing-amount">4 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Lemons</span><span class="ing-amount">2 (juice + zest)</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Preheat oven to 190°C (fan 170°C). Butterfly or pound chicken breasts to an even 2–2.5cm thickness. Pat dry and season generously on both sides.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Heat 2 tbsp olive oil in an oven-safe pan over medium-high. Sear presentation-side down for 4–5 minutes until deep golden. Flip.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Squeeze juice of 1 lemon over chicken, add zest, drizzle extra olive oil on top. Transfer to oven and roast 18–22 minutes until juices run clear. Rest 5 minutes before slicing.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Snap woody ends off asparagus. Heat 2 tbsp olive oil in a pan over medium. Cook asparagus 5–7 minutes turning occasionally. Squeeze remaining lemon over.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Plate sliced chicken with asparagus, scatter parsley, drizzle pan juices.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Up to 3 days. Reheat gently in a pan with a splash of olive oil. Slice just before eating to retain moisture.</div>
+  </div>
+
+  <!-- RECIPE 2 -->
+  <div class="recipe" id="r1">
+    <div class="recipe-title">Pan-seared salmon with zucchini & avocado</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>8 min</span></div><div class="meta-item">Cook <span>15 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Stove only</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Salmon fillets</span><span class="ing-amount">4 fillets (~700g)</span></div>
+      <div class="ingredient"><span class="ing-name">Zucchini</span><span class="ing-amount">3 medium</span></div>
+      <div class="ingredient"><span class="ing-name">Avocados</span><span class="ing-amount">2 ripe</span></div>
+      <div class="ingredient"><span class="ing-name">Unrefined avocado oil</span><span class="ing-amount">3 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Lemon</span><span class="ing-amount">1 (juice)</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley or dill</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Pat salmon dry, season both sides. Slice zucchini into 1cm half-moons.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Heat 1 tbsp avocado oil over medium-high. Cook zucchini in a single layer 4–5 minutes until golden. Season and set aside.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Wipe pan, heat 2 tbsp avocado oil over medium-high. Place salmon skin-side down, press gently 30 seconds. Cook 4 minutes without moving. Flip and cook 2–3 more minutes.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Slice avocados. Plate salmon with zucchini and avocado. Squeeze lemon juice, finish with herbs and olive oil.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Up to 2 days. Slice avocado fresh for the second meal — browns if stored cut.</div>
+  </div>
+
+  <!-- RECIPE 3 -->
+  <div class="recipe" id="r2">
+    <div class="recipe-title">Beef steaks with mushroom, asparagus & sweet potato</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>8 min</span></div><div class="meta-item">Cook <span>25 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Stove only</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Beef steaks (sirloin)</span><span class="ing-amount">2 × 200g</span></div>
+      <div class="ingredient"><span class="ing-name">Sweet potatoes</span><span class="ing-amount">2 medium</span></div>
+      <div class="ingredient"><span class="ing-name">Mushrooms</span><span class="ing-amount">300g</span></div>
+      <div class="ingredient"><span class="ing-name">Asparagus</span><span class="ing-amount">1 bunch (~400g)</span></div>
+      <div class="ingredient"><span class="ing-name">Extra virgin olive oil</span><span class="ing-amount">3 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Lemon</span><span class="ing-amount">1 (juice)</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Peel sweet potatoes, cut into 4cm chunks, boil in salted water 15–18 minutes until tender. Drain.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Take steaks out of fridge 15 minutes before cooking. Pat dry, season generously on both sides.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Heat 1 tbsp olive oil in a heavy pan over high until very hot. Sear steaks 2.5–3 minutes per side for medium. Press edges briefly. Remove and rest 5 minutes.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Same pan, medium-high, 2 tbsp olive oil. Cook sliced mushrooms 3–4 minutes until browned. Snap woody ends off asparagus, cut into 4–5cm diagonal pieces, add to pan and stir-fry together 3–4 more minutes until asparagus is tender with a slight bite. Squeeze lemon juice over.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Plate each steak with the mushroom and asparagus mix and sweet potato. Drizzle resting juices and finish with parsley.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Store steaks whole and unsliced up to 2 days. Vegetables and sweet potato keep 3 days.</div>
+  </div>
+
+  <!-- RECIPE 4 -->
+  <div class="recipe" id="r3">
+    <div class="recipe-title">Baked frittata with carrots, spinach & herbs</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>10 min</span></div><div class="meta-item">Cook <span>30 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Oven + stove</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Eggs</span><span class="ing-amount">8 large</span></div>
+      <div class="ingredient"><span class="ing-name">Carrots</span><span class="ing-amount">3 medium</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh spinach</span><span class="ing-amount">150g</span></div>
+      <div class="ingredient"><span class="ing-name">Duck fat (or olive oil)</span><span class="ing-amount">2 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh dill (or parsley)</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Lemon</span><span class="ing-amount">½ (juice)</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Preheat oven to 180°C (fan 160°C). Peel carrots and cut into thin rounds (3–4mm).</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Melt duck fat in an oven-safe pan (22–24cm) over medium. Cook carrots with salt and pepper 6–7 minutes until softened and lightly golden.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Add spinach in batches, stir 2–3 minutes until fully wilted and excess water evaporated.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Beat eggs with salt, pepper, dill and half the parsley. Pour evenly over vegetables. Cook on stove over low 3–4 minutes until edges set.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Transfer to oven and bake 15–18 minutes until fully set and lightly golden. Skewer should come out clean.</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text">Cool 5 minutes, squeeze lemon juice, scatter parsley, slice into wedges. Serve warm or at room temperature.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Up to 3 days. Excellent cold — no reheating needed.</div>
+  </div>
+
+  <!-- RECIPE 5 -->
+  <div class="recipe" id="r4">
+    <div class="recipe-title">Stuffed portobello mushrooms with minced beef & vegetables</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>15 min</span></div><div class="meta-item">Cook <span>35 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Oven + stove</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Large portobello mushrooms</span><span class="ing-amount">4 large</span></div>
+      <div class="ingredient"><span class="ing-name">Minced beef</span><span class="ing-amount">400g</span></div>
+      <div class="ingredient"><span class="ing-name">Leek</span><span class="ing-amount">1 medium</span></div>
+      <div class="ingredient"><span class="ing-name">Carrots</span><span class="ing-amount">2 medium</span></div>
+      <div class="ingredient"><span class="ing-name">Zucchini</span><span class="ing-amount">1 medium</span></div>
+      <div class="ingredient"><span class="ing-name">Extra virgin olive oil</span><span class="ing-amount">3 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Lemon</span><span class="ing-amount">1 (juice)</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Preheat oven to 190°C (fan 170°C). Remove mushroom stalks, set caps aside. Finely chop stalks and reserve for filling.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Finely dice leek, carrots, zucchini and mushroom stalks into very small pieces — the smaller the better so they cook into the meat.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Heat 2 tbsp olive oil over medium. Cook leek 5–6 minutes until completely soft with no bite — leek is an allium and must be thoroughly cooked. Add carrots and zucchini, cook 4–5 more minutes.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Add minced beef, breaking it up well. Cook over medium-high 6–7 minutes until fully browned. Add mushroom stalks, cook 2 more minutes. Season well, remove from heat, stir in parsley and lemon juice.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Place caps gill-side up on a baking tray. Brush outside with remaining 1 tbsp olive oil, season lightly. Spoon filling in generously, pressing and mounding on top.</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text">Bake 18–20 minutes until caps are tender and filling is hot through. Finish with parsley and a drizzle of olive oil.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Up to 3 days. Reheat in oven at 180°C for 10–12 minutes. Avoid microwave.</div>
+  </div>
+
+  <!-- RECIPE 6 — updated: zucchini replaced with spinach -->
+  <div class="recipe" id="r5">
+    <div class="recipe-title">Pan-fried hake with spinach & warm olives</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>8 min</span></div><div class="meta-item">Cook <span>15 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Stove only</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Hake fillets</span><span class="ing-amount">4 fillets (~700g)</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh spinach</span><span class="ing-amount">200g</span></div>
+      <div class="ingredient"><span class="ing-name">Pitted olives</span><span class="ing-amount">100g</span></div>
+      <div class="ingredient"><span class="ing-name">Extra virgin olive oil</span><span class="ing-amount">4 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Lemons</span><span class="ing-amount">2 (juice)</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Pat hake fillets very dry — hake has high water content. Season both sides with salt and black pepper.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Heat 1 tbsp olive oil in a wide pan over medium heat. Add spinach in batches and toss 2–3 minutes until fully wilted and excess water evaporated. Season lightly, remove and set aside.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Wipe pan, heat 2 tbsp olive oil over medium-high. Place hake skin-side down. Do not move. Cook 3–4 minutes until flesh is opaque two-thirds up.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Carefully flip with a wide spatula and cook 1–2 more minutes. Handle gently — hake breaks apart easily. Remove and rest briefly.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Same pan over low, add ½ tbsp olive oil and warm olives 1–2 minutes with a squeeze of lemon. Just warm through, do not fry.</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text">Plate hake on a bed of spinach with the warm olives alongside. Squeeze more lemon over everything, finish with parsley and a drizzle of olive oil.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Best eaten fresh. If storing, refrigerate up to 2 days. Reheat hake very gently in a covered pan with a splash of olive oil; eat the spinach cold or at room temperature.</div>
+  </div>
+
+  <!-- RECIPE 7 — updated: zucchini replaced with mushrooms -->
+  <div class="recipe" id="r6">
+    <div class="recipe-title">Beef meatballs with mushrooms</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>15 min</span></div><div class="meta-item">Cook <span>25 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Oven + stove</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Minced beef</span><span class="ing-amount">500g</span></div>
+      <div class="ingredient"><span class="ing-name">Mushrooms</span><span class="ing-amount">400g</span></div>
+      <div class="ingredient"><span class="ing-name">Leek (white part only)</span><span class="ing-amount">½ medium</span></div>
+      <div class="ingredient"><span class="ing-name">Egg</span><span class="ing-amount">1 large</span></div>
+      <div class="ingredient"><span class="ing-name">Extra virgin olive oil</span><span class="ing-amount">3 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh thyme</span><span class="ing-amount">a few sprigs</span></div>
+      <div class="ingredient"><span class="ing-name">Lemon</span><span class="ing-amount">1 (juice)</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Preheat oven to 200°C (fan 180°C). Finely chop leek and cook in 1 tbsp olive oil over medium 5–6 minutes until completely soft. Let cool a few minutes.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Combine minced beef, cooked leek, egg, chopped parsley, thyme leaves, salt and pepper. Mix with hands until evenly combined. Do not overwork.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Shape into golf-ball sized meatballs (~14–16 total). Place on a lightly oiled baking tray with space between each.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Brown meatballs in a pan with 1 tbsp olive oil over high, 2 minutes per side to seal. Transfer to oven and bake 12–15 minutes until cooked through.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">While meatballs bake, heat 1 tbsp olive oil in a pan over medium-high. Slice mushrooms and cook 4–5 minutes without stirring until deeply browned. Season with salt, pepper and a squeeze of lemon. Scatter with thyme leaves.</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text">Serve meatballs on top of the mushrooms, drizzle with olive oil and scatter with parsley.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Up to 3 days. Reheat meatballs in a pan with olive oil 4–5 minutes turning occasionally, or in oven at 180°C for 10 minutes. Reheat mushrooms briefly in a hot pan.</div>
+  </div>
+
+  <!-- RECIPE 8 — updated: zucchini removed, asparagus increased -->
+  <div class="recipe" id="r7">
+    <div class="recipe-title">Shrimp stir-fry with asparagus</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>10 min</span></div><div class="meta-item">Cook <span>12 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Stove only</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Small shrimps, peeled</span><span class="ing-amount">500g</span></div>
+      <div class="ingredient"><span class="ing-name">Asparagus</span><span class="ing-amount">2 bunches (~700g)</span></div>
+      <div class="ingredient"><span class="ing-name">Extra virgin olive oil</span><span class="ing-amount">3 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Lemons</span><span class="ing-amount">2 (juice + zest)</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh thyme</span><span class="ing-amount">a few sprigs</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Pat shrimps dry, season with salt and pepper. Snap woody ends off asparagus and cut into 4–5cm diagonal pieces.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Heat 1 tbsp olive oil in a wide pan or wok over high heat. Stir-fry asparagus for 4–5 minutes until tender with a slight bite. Season with salt and remove from pan.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Return pan to high heat with 2 tbsp olive oil. Cook shrimps in a single layer in batches — 1–1.5 minutes per side. Stop the moment they turn pink and curl. Do not overcook or they turn rubbery.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Return asparagus to pan with the shrimps. Add lemon juice, zest and thyme leaves. Toss over high heat for 30 seconds.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Plate immediately. Squeeze more lemon, scatter parsley, drizzle olive oil.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Best eaten fresh. Shrimps turn rubbery when reheated — eat the second meal cold with extra lemon and olive oil as a salad-style dish.</div>
+  </div>
+
+  <!-- RECIPE 9 -->
+  <div class="recipe" id="r8">
+    <div class="recipe-title">Baby squid stir-fry with spinach & avocado</div>
+    <div class="meta">
+      <div class="meta-item">Prep <span>10 min</span></div><div class="meta-item">Cook <span>10 min</span></div><div class="meta-item">Serves <span>2 meals</span></div><div class="meta-item">Method <span>Stove only</span></div>
+    </div>
+    <div class="section-label">Ingredients</div>
+    <div class="ingredients-grid">
+      <div class="ingredient"><span class="ing-name">Baby squid, cleaned</span><span class="ing-amount">600g</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh spinach</span><span class="ing-amount">150g</span></div>
+      <div class="ingredient"><span class="ing-name">Avocados</span><span class="ing-amount">2 ripe</span></div>
+      <div class="ingredient"><span class="ing-name">Extra virgin olive oil</span><span class="ing-amount">3 tbsp</span></div>
+      <div class="ingredient"><span class="ing-name">Lemons</span><span class="ing-amount">2 (juice)</span></div>
+      <div class="ingredient"><span class="ing-name">Fresh parsley</span><span class="ing-amount">small handful</span></div>
+      <div class="ingredient"><span class="ing-name">Salt & black pepper</span><span class="ing-amount">to taste</span></div>
+    </div>
+    <div class="section-label">Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Pat baby squid very dry with kitchen paper — moisture prevents a good sear. If whole, separate tentacles from bodies. Season with salt and pepper just before cooking, not earlier — salt draws out moisture.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Slice the avocados and arrange on the plates ready to serve. Avocado goes on cold, not in the pan.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Heat 1.5 tbsp olive oil in a wide pan or wok over the highest heat possible until just beginning to smoke. Add spinach and toss quickly 1–2 minutes until wilted. Season lightly and remove to a plate.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Return pan to highest heat with remaining 1.5 tbsp olive oil. Add squid in a single layer — cook in two batches if needed. Sear without moving 1–1.5 minutes until golden underneath, then toss for another 30–60 seconds. Total time must not exceed 2–3 minutes or squid turns rubbery.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Return spinach to pan with squid. Squeeze juice of 1 lemon, toss together over high heat for 20–30 seconds.</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-text">Plate immediately alongside fresh sliced avocado. Squeeze more lemon over the avocado, drizzle everything with olive oil and scatter with fresh parsley.</div></div>
+    </div>
+    <div class="tip"><strong>Storage:</strong> Best eaten immediately. Squid turns rubbery when reheated — eat the second meal cold with extra lemon and olive oil. Do not slice avocado until ready to eat.</div>
+  </div>
+
+</div>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const recipes = document.querySelectorAll('.recipe');
+  const tabsEl = document.querySelector('.tabs');
+
+  function show(i, clickedTab) {
+    recipes.forEach((r, idx) => r.classList.toggle('visible', idx === i));
+    tabs.forEach((t, idx) => t.classList.toggle('active', idx === i));
+    tabsEl.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    if (clickedTab) clickedTab.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+  }
+
+  tabs.forEach((btn, idx) => btn.addEventListener('click', () => show(idx, btn)));
+</script>
+</body>
+</html>
